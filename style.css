@@ -1,0 +1,250 @@
+/* ===
+Imports
+=== */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+/* ===
+Variables
+=== */
+
+:root {
+  --primary-cyan: hsl(172, 67%, 45%);
+  --dark-cyan: hsl(183, 100%, 15%);
+  --dark-gray-cyan-1: hsl(186, 14%, 43%);
+  --dark-gray-cyan-2: hsl(184, 14%, 56%);
+  --light-gray-cyan-1: hsl(185, 41%, 84%);
+  --light-gray-cyan-2: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+
+/* ===
+Global Styles
+=== */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background-color: var(--light-gray-cyan-1);
+}
+input {
+  font-size: 24px;
+  background-color: var(--light-gray-cyan-2);
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  color: var(--dark-cyan);
+}
+input:focus {
+  outline-color: var(--primary-cyan);
+}
+p {
+  color: var(--dark-cyan);
+  font-weight: 700;
+}
+button {
+  border: none;
+  font-family: "Space Mono", monospace;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+/* ===
+Global Classes
+=== */
+.logo-div {
+  display: flex;
+  justify-content: center;
+  padding: 3em;
+}
+
+.main-section {
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.bill {
+  margin-bottom: 2em;
+}
+.bill p {
+  margin-bottom: 0.5em;
+}
+.bill-input,
+.people-input {
+  padding: 0.3em;
+  background-repeat: no-repeat;
+  background-position: 15px 15px;
+  text-align: right;
+}
+.bill-input {
+  background-image: url(./images/icon-dollar.svg);
+}
+.bill-input[type="number"],
+.people-input[type="number"] {
+  color: var(--dark-cyan);
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+}
+
+.tip {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.tip p {
+  margin-bottom: 0.3em;
+  width: 100%;
+}
+.tip div {
+  width: 48%;
+}
+.tip button {
+  width: 100%;
+  padding: 0.3em 0;
+  margin-bottom: 0.8em;
+  color: var(--white);
+  background-color: var(--dark-cyan);
+}
+.tip button:hover,
+.tip button:focus {
+  cursor: pointer;
+  background-color: var(--primary-cyan);
+  color: var(--dark-cyan);
+}
+.tip input {
+  width: 100%;
+  height: 50px;
+  padding: 0.3em 1em;
+  text-align: right;
+}
+.tip input::placeholder {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.people {
+  margin-bottom: 1em;
+  position: relative;
+}
+.people p {
+  margin-bottom: 0.5em;
+}
+.people-input {
+  background-image: url(./images/icon-person.svg);
+}
+.people-input.show {
+  outline-color: orange;
+}
+.error-msg {
+  visibility: hidden;
+  color: orange;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.error-msg.show {
+  visibility: visible;
+}
+
+.total-div {
+  background-color: var(--dark-cyan);
+  padding: 1em;
+  border-radius: 10px;
+}
+.total-div p {
+  color: var(--white);
+}
+
+.tip-amount,
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+}
+.tip-amount span,
+.total span {
+  display: block;
+  color: var(--dark-gray-cyan-2);
+  font-size: 0.8rem;
+}
+.tip-result,
+.total-result {
+  font-size: 1.5rem;
+}
+#tip-result-text,
+#total-result-text {
+  color: var(--primary-cyan);
+}
+.reset-btn {
+  width: 100%;
+  text-transform: uppercase;
+  color: var(--dark-cyan);
+  font-weight: 700;
+  background-color: var(--primary-cyan);
+  padding: 0.3em;
+  font-size: 1.2rem;
+}
+.reset-btn:hover {
+  cursor: pointer;
+  background-color: var(--light-gray-cyan-1);
+}
+
+/* ===
+Media Query
+=== */
+
+@media screen and (min-width: 800px) {
+  .logo-div {
+    padding: em;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-section {
+    max-width: 1100px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .input-div {
+    width: 48%;
+  }
+  .total-div {
+    width: 48%;
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    width: 100%;
+  }
+  .tip div {
+    width: 31%;
+  }
+  .tip input {
+    font-size: 1.2rem;
+  }
+  .total,
+  .tip-amount {
+    align-items: center;
+  }
+  .total-result,
+  .tip-result {
+    font-size: 3rem;
+  }
+  .reset-btn {
+    margin-top: auto;
+  }
+}
